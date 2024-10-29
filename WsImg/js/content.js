@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
                 success: function (res) {
                     if (res.key) {
                         cnt++;
-                        $('#img-list').append(`
+                        $('#img-list').prepend(`
                         <img src="`+domain + `/` + res.key+`" width="100px;" onclick="Typecho.insertFileToEditor('`+domain + `/` + res.key+`','`+domain + `\/` + res.key+`',true);" title="点击插入编辑器">
                         `);
                         if (cnt === len) {
