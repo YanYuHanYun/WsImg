@@ -47,7 +47,7 @@ class Plugin implements PluginInterface
     public static function css($header)
     {
         if (Widget::widget('Widget_User')->hasLogin()) {
-            $header = $header . '<link rel="stylesheet" href="' . WsImg . 'css/main.css' . '" type="text/css"/><link href="//cdn.jsdelivr.net/npm/layui-layer@1.0.9/layer.min.css" rel="stylesheet">';
+            $header = $header . '<link rel="stylesheet" href="' . WsImg . 'css/main.css' . '" type="text/css"/><link href="https://cdn.jsdelivr.net/npm/layui-layer@1.0.9/layer.min.css" rel="stylesheet">';
         }
         return $header;
     }
@@ -61,7 +61,7 @@ class Plugin implements PluginInterface
         $html = '<div class="admin-upload-img"><label class="ui_button" for="admin-img-file">图片上传</label><form><input id="admin-img-file" type="file" multiple="multiple"></form><div id="img-list"></div></div>';
         if (Widget::widget('Widget_User')->hasLogin()) {
             echo '<script>SITE_URL="' . Helper::options()->index . '";</script>';
-            echo '<script src="//cdn.jsdelivr.net/npm/layui-layer@1.0.9/dist/layer.min.js"></script>';
+            echo '<script src="https://cdn.jsdelivr.net/npm/layui-layer@1.0.9/dist/layer.min.js"></script>';
             echo '<script src="' . WsImg . 'js/content.js' . '"></script>';
             ?>
             <script>
