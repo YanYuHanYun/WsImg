@@ -31,27 +31,28 @@ jQuery(document).ready(function ($) {
                 data: formData,
                 dataType: 'json',
                 success: function (res) {
-                    layer.closeAll();
                     if (res.key) {
                         cnt++;
                         $('#img-list').append(`
                         <img src="`+domain + `/` + res.key+`" width="100px;" onclick="Typecho.insertFileToEditor('`+domain + `/` + res.key+`','`+domain + `\/` + res.key+`',true);" title="点击插入编辑器">
                         `);
                         if (cnt === len) {
+                            layer.closeAll();
                             layer.msg('上传成功，点击预览图即可插入编辑器');
                             label.text("图片上传");
                         }
                     } else {
+                        layer.closeAll();
                         label.text("图片上传");
                         layer.alert(res.error);
                     }
                 },
                 error: function (e) {
+                    layer.closeAll();
                     label.text("图片上传");
                     if (e.responseText) {
                         layer.alert(eval("(" + e.responseText + ")").error);
                     } else {
-                        layer.closeAll();
                         layer.alert('上传失败，网络错误');
                     }
                 }
