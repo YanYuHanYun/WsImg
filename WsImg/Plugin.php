@@ -79,7 +79,7 @@ class Plugin implements PluginInterface
      */
     public static function config(Form $form)
     {
-        $token = new Text('token', null, '', _t('微商相册Token <a href="https://mmpw.cn/WsImgLogin" target="_blank">点击获取</a>'));
+        $token = new Text('token', null, '', _t('微商相册Token <a href="https://mmpwl.cn/WsImgLogin/" target="_blank">点击获取</a>'));
         $form->addInput($token);
         $Content_ = new Radio('content', array(
             1 => _t('启用'),
