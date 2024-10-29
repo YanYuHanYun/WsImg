@@ -1,0 +1,33 @@
+.ui_button {
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    /*overflow: hidden;*/
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+}
+
+.ui_button:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+.admin-upload-img{
+    display: inline-block;
+    margin-left: 15px;
+}
+
+#admin-img-file{
+    position:absolute;
+    clip:rect(0 0 0 0);
+    opacity: 0;
+}
+
+#img-list{
+    margin: 10px;
+}
