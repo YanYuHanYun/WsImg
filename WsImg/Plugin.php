@@ -47,7 +47,7 @@ class Plugin implements PluginInterface
     public static function css($header)
     {
         if (Widget::widget('Widget_User')->hasLogin()) {
-            $header = $header . '<link rel="stylesheet" href="' . WsImg . 'css/main.css' . '" type="text/css"/><link href="https://cdn.jsdelivr.net/npm/layui-layer@1.0.9/layer.min.css" rel="stylesheet">';
+            $header = $header . '<link rel="stylesheet" href="' . WsImg . 'css/main.css' . '" type="text/css"/>';
         }
         return $header;
     }
@@ -61,7 +61,7 @@ class Plugin implements PluginInterface
         $html = '<div class="admin-upload-img"><label class="ui_button" for="admin-img-file">图片上传</label><form><input id="admin-img-file" type="file" multiple="multiple"></form><div id="img-list"></div></div>';
         if (Widget::widget('Widget_User')->hasLogin()) {
             echo '<script>SITE_URL="' . Helper::options()->index . '";</script>';
-            echo '<script src="https://cdn.jsdelivr.net/npm/layui-layer@1.0.9/dist/layer.min.js"></script>';
+            echo '<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/layer/3.5.1/layer.min.js"></script>';
             echo '<script src="' . WsImg . 'js/content.js' . '"></script>';
             ?>
             <script>
@@ -81,11 +81,11 @@ class Plugin implements PluginInterface
     {
         $token = new Text('token', null, '', _t('微商相册Token <a href="https://mmpwl.cn/WsImgLogin/" target="_blank">点击获取</a>'));
         $form->addInput($token);
-        $Content_ = new Radio('content', array(
+        $content = new Radio('content', array(
             1 => _t('启用'),
             0 => _t('关闭'),
         ), 1, _t('后台文章编辑启用图片上传'), _t('勾选后在后台文章编辑处自动添加图片上传按钮'));
-        $form->addInput($Content_);
+        $form->addInput($content);
     }
 
     /**
