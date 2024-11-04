@@ -46,7 +46,7 @@ var captcha = new TencentCaptcha('2051150327', function (res) {
             , time: false
         });
         $.ajax({
-            url: SITE_URL + '/action/send',
+            url: AJAX_URL + '&do=send',
             type: 'POST',
             data: data,
             dataType: 'json',
@@ -83,7 +83,7 @@ function login() {
         , time: false
     });
     $.ajax({
-        url: SITE_URL + '/action/login',
+        url: AJAX_URL + '&do=login',
         type: 'POST',
         data: {phone: phone, code: code},
         dataType: 'json',
