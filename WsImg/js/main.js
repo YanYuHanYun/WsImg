@@ -18,6 +18,7 @@ jQuery(document).ready(function ($) {
             , shade: 0.01
             , time: false
         });
+        var text = '';
         for (var i = 0; i < len; i++) {
             var f = this.files[i];
             var formData = new FormData();
@@ -49,10 +50,24 @@ jQuery(document).ready(function ($) {
                                 if (d.code == 1) {
                                     cnt++;
                                     get_list(1);
+                                    text += `![`+res.name+`](`+domain + '/' + res.key+`)
+`;
                                     if (cnt === len) {
                                         layer.closeAll();
-                                        layer.msg('上传成功，点击预览图即可插入编辑器');
                                         label.text("图片上传");
+                                        layer.confirm('上传成功，是否需要全部插入编辑器？', {
+                                            btn: ['是','否']
+                                        }, function(){
+                                            layer.msg('插入成功');
+                                            var textarea = $('#text'), sel = textarea.getSelection(),offset = (sel ? sel.start : 0) + text.length;
+                                            textarea.replaceSelection(text);
+                                            textarea.setSelection(offset, offset);
+                                            // 触发input事件更新预览
+                                            var inputEvent = new Event('input', { bubbles: true });
+                                            document.getElementById('text').dispatchEvent(inputEvent);
+                                        }, function(){
+                                            layer.msg('点击预览图即可插入编辑器');
+                                        });
                                     }
                                 }
                             },
